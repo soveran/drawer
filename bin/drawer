@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+unless file_name = ARGV.first
+  puts "Usage: drawer path_to_drawer_file"
+  exit 1
+end
+
+unless File.exists?(file_name)
+  puts "The file #{file_name} doesn't exist"
+  exit
+end
+
+ENV['DRAWER'] = file_name
+
+require "drawer/console"

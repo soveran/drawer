@@ -46,4 +46,8 @@ class Drawer
   def flush_all
     cache.clear
   end
+
+  def inspect
+    "Drawer count: #{cache.size}. Type 'cache' to view the content."
+  end
 end

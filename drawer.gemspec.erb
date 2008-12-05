@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'drawer'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.summary = %{Ultra light cache.}
   s.date = %q{2008-12-05}
   s.author = "Michel Martens"
@@ -12,6 +12,9 @@ Gem::Specification.new do |s|
   s.files = <%= FileList['lib/**/*.rb', 'README*', 'LICENSE', 'Rakefile', 'example/**/*.*', 'test/**/*.*'].inspect %>
 
   s.require_paths = ['lib']
+
+  s.bindir = "bin"
+  s.executables = "drawer"
 
   s.extra_rdoc_files = ["README.rdoc"]
   s.has_rdoc = true
