@@ -14,7 +14,6 @@ end
 
 class Drawer
   attr :cache
-  attr :table
 
   def initialize(file, store = DrawerStore)
     @cache = store.load(file)
