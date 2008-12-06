@@ -11,6 +11,7 @@ end
 class TestDrawer < Test::Unit::TestCase
   context "drawer" do
     setup do
+      Drawer.create(cache_file)
       @drawer = Drawer.new(cache_file)
       @drawer.flush_all
     end
@@ -50,6 +51,54 @@ class TestDrawer < Test::Unit::TestCase
 
       should "return a list of values" do
         assert_equal [9, 25, 49], @drawer.get_multi(3, 5, 7)
+      end
+    end
+
+    context "class methods" do
+      setup do
+        Drawer.remove(cache_file)
+        Drawer.create(cache_file)
+      end
+
+      context "open" do
+        should "return an instance of Drawer" do
+          assert_kind_of Drawer, Drawer.open(cache_file)
+        end
+      end
+
+      context "open with block" do
+        should "call the passed block" do
+          drawer = Drawer.open(cache_file) do |cache|
+            cache.set("foo", 123)
+          end
+          assert_equal 123, drawer.get('foo')
+        end
+      end
+    end
+
+    context "class methods with unexistent file" do
+      setup do
+        Drawer.remove(cache_file)
+      end
+
+      context "open" do
+        should "raise if the file doesn't exist" do
+          assert_raise Errno::ENOENT do
+            Drawer.open(cache_file)
+          end
+        end
+
+        should "not create the file" do
+          Drawer.open(cache_file) rescue Errno::ENOENT
+          assert_equal false, File.exists?(cache_file)
+        end
+      end
+
+      context "open!" do
+        should "create the file" do
+          Drawer.open!(cache_file)
+          assert_equal true, File.exists?(cache_file)
+        end
       end
     end
   end
