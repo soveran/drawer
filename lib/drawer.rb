@@ -16,7 +16,7 @@ class Drawer
   attr :cache
 
   def initialize(file, store = DrawerStore)
-    @cache = store.load(file)
+    @cache = store.load(file) || {}
 
     at_exit do
       store.save(@cache, file)
