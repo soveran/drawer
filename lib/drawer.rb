@@ -58,12 +58,14 @@ class Drawer
   end
 
   def self.open(file, &block)
+    file = File.expand_path(file)
     drawer = Drawer.new(file)
     yield drawer if block_given?
     drawer
   end
 
   def self.open!(file)
+    file = File.expand_path(file)
     create(file)
     open(file)
   end

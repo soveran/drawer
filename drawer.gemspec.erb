@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'drawer'
-  s.version = '0.0.4'
+  s.version = '0.0.5'
   s.summary = %{Ultra light cache.}
   s.date = %q{2008-12-05}
   s.author = "Michel Martens"
