@@ -26,7 +26,7 @@ class Drawer
   end
 
   def get(k)
-    cache[k]
+    cache[k] or (set(k, yield) if block_given?)
   end
 
   def get_multi(*ks)

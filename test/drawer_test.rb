@@ -20,9 +20,16 @@ class TestDrawer < Test::Unit::TestCase
       assert_nil @drawer.get("foo")
     end
 
+    should "set a key with a block on a cache miss" do
+      assert_equal 123, @drawer.get("foo") { 123 }
+      assert_nothing_raised { @drawer.get("foo") { raise 'Should not call block.' } }
+    end
+
     should "successfully set a key" do
       @drawer.set("foo", 123)
       assert_equal 123, @drawer.get("foo")
+      
+      assert_equal 124, @drawer.set("foo", 124)
     end
 
     should "clear an entry with remove" do
