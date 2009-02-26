@@ -30,9 +30,5 @@ be used for retrieving and saving the cached contents.
   $ gem sources -a http://gems.github.com (you only have to do this once)
   $ sudo gem install soveran-drawer
 
-== Contributors
-
-Michel Martens
-
 Copyright (c) 2008 Michel Martens.
 Released under the MIT license.
