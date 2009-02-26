@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = 'drawer'
-  s.version = '0.0.6'
-  s.summary = %{Ultra light cache.}
+  s.version = '0.0.7'
+  s.summary = %{Ultra light file-based cache.}
   s.date = %q{2008-12-05}
   s.author = "Michel Martens"
   s.email = "michel@soveran.com"
@@ -20,3 +20,4 @@ Gem::Specification.new do |s|
   s.has_rdoc = true
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "drawer", "--main", "README.rdoc"]
 end
+
