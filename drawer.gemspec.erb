@@ -1,20 +1,14 @@
 Gem::Specification.new do |s|
   s.name = 'drawer'
-  s.version = '0.0.7'
-  s.date = %q{2008-12-05}
+  s.version = '0.0.8'
   s.summary = %{Ultra light file-based cache.}
+  s.description = %{Ultra light file-based cache.}
   s.email = "michel@soveran.com"
   s.author = "Michel Martens"
   s.homepage = "http://github.com/soveran/drawer"
-
-  s.specification_version = 2 if s.respond_to? :specification_version=
-
+  s.rubyforge_project = "drawer"
   s.files = <%= Dir['lib/**/*.rb', 'bin/**/*.rb', 'README*', 'LICENSE', 'Rakefile', 'example/**/*.*', 'test/**/*.*'].inspect %>
-
-  s.require_paths = ['lib']
   s.bindir = "bin"
   s.executables = "drawer"
-
-  s.has_rdoc = false
 end
 

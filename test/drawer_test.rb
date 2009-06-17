@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'rubygems'
-require 'shoulda'
+require 'contest'
 
 require File.join(File.dirname(__FILE__), '../lib/drawer')
 
@@ -27,8 +27,8 @@ class TestDrawer < Test::Unit::TestCase
 
     should "successfully set a key" do
       @drawer.set("foo", 123)
+
       assert_equal 123, @drawer.get("foo")
-      
       assert_equal 124, @drawer.set("foo", 124)
     end
 
@@ -67,7 +67,7 @@ class TestDrawer < Test::Unit::TestCase
         Drawer.create(cache_file)
       end
 
-      context "open" do
+      context "open an existent file" do
         should "return an instance of Drawer" do
           assert_kind_of Drawer, Drawer.open(cache_file)
         end
@@ -88,7 +88,7 @@ class TestDrawer < Test::Unit::TestCase
         Drawer.remove(cache_file)
       end
 
-      context "open" do
+      context "open a not existent file" do
         should "raise if the file doesn't exist" do
           assert_raise Errno::ENOENT do
             Drawer.open(cache_file)

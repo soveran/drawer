@@ -1,4 +1,5 @@
 require 'yaml'
+require 'fileutils'
 
 class DrawerStore
   def self.load(file)
