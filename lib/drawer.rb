@@ -18,11 +18,12 @@ class Drawer
   attr :store
 
   def initialize(file, store = DrawerStore)
+    @file  = file
     @store = store
     @cache = store.load(file) || {}
 
     at_exit do
-      save(file)
+      save
     end
   end
 
@@ -54,7 +55,7 @@ class Drawer
     "Drawer count: #{cache.size}. Type 'cache' to view the content."
   end
 
-  def save(file)
+  def save(file=@file)
     store.save(@cache, file)
   end
 
