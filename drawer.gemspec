@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'drawer'
-  s.version = '0.0.8'
+  s.version = '0.0.9'
   s.summary = %{Ultra light file-based cache.}
   s.description = %{Ultra light file-based cache.}
   s.email = "michel@soveran.com"
